@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>
+    Classe *SceneObject*
+  </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+            <div id="jump_page_wrapper">
+              <div id="jump_page">
+                
+                  
+                    <a class="source" href="chickendodge.html">
+                      chickendodge.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components.html">
+                      components.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/backgroundLoaderComponent.html">
+                      components/backgroundLoaderComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/cameraComponent.html">
+                      components/cameraComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/chickenComponent.html">
+                      components/chickenComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/chickenSpawnerComponent.html">
+                      components/chickenSpawnerComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/colliderComponent.html">
+                      components/colliderComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/component.html">
+                      components/component.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/compositorComponent.html">
+                      components/compositorComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/countdownComponent.html">
+                      components/countdownComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/debugDrawCallsComponent.html">
+                      components/debugDrawCallsComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/deformationCompositorComponent.html">
+                      components/deformationCompositorComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/enablerComponent.html">
+                      components/enablerComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/heartComponent.html">
+                      components/heartComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/inputComponent.html">
+                      components/inputComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/layerComponent.html">
+                      components/layerComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/lifeComponent.html">
+                      components/lifeComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/playerComponent.html">
+                      components/playerComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/positionComponent.html">
+                      components/positionComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/rawSpriteComponent.html">
+                      components/rawSpriteComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/rectangle.html">
+                      components/rectangle.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/refereeComponent.html">
+                      components/refereeComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/renderCompositorComponent.html">
+                      components/renderCompositorComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/rupeeComponent.html">
+                      components/rupeeComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/scoreComponent.html">
+                      components/scoreComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/spriteComponent.html">
+                      components/spriteComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/spriteSheetComponent.html">
+                      components/spriteSheetComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/textSpriteComponent.html">
+                      components/textSpriteComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/textureComponent.html">
+                      components/textureComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="components/timerComponent.html">
+                      components/timerComponent.js
+                    </a>
+                    
+                  
+                    <a class="source" href="eventTrigger.html">
+                      eventTrigger.js
+                    </a>
+                    
+                  
+                    <a class="source" href="graphicsAPI.html">
+                      graphicsAPI.js
+                    </a>
+                    
+                  
+                    <a class="source" href="main.html">
+                      main.js
+                    </a>
+                    
+                  
+                    <a class="source" href="scene.html">
+                      scene.js
+                    </a>
+                    
+                  
+                    <a class="source" href="sceneObject.html">
+                      sceneObject.js
+                    </a>
+                    
+                  
+                    <a class="source" href="utils.html">
+                      utils.js
+                    </a>
+                    
+              </div>
+            </div>
+        </li>
+      </ul>
+      
+        <ul class="sections">
+          
+              
+                
+                  <li id="section-1">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-1">&#182;</a>
+                        </div>
+                        
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>define([
+  <span class="hljs-string">'components'</span>,
+], (
+  ComponentFactory
+) =&gt; {
+  <span class="hljs-string">'use strict'</span>;</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-2">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-2">&#182;</a>
+                        </div>
+                        <h1 id="classe-sceneobject-">Classe <em>SceneObject</em></h1>
+<p>La classe <em>SceneObject</em> représente un objet de la scène qui
+peut contenir des enfants et des composants.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SceneObject</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-3">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-3">&#182;</a>
+                        </div>
+                        <h2 id="membre-active-">Membre <em>active</em></h2>
+<p>Si ce membre a une valeur fausse, les méthodes <em>update</em> et
+<em>display</em> ne seront pas appelées sur les composants de
+cet objet et ses enfants.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>      <span class="hljs-keyword">this</span>.active = <span class="hljs-literal">true</span>;
+
+      <span class="hljs-keyword">this</span>.components = {};
+      <span class="hljs-keyword">this</span>.children = {};
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-4">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-4">&#182;</a>
+                        </div>
+                        <h2 id="m-thode-create-">Méthode <em>create</em></h2>
+<p>Crée la hiérarchie d’objets et de composants depuis une
+description.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    create(description) {
+      <span class="hljs-keyword">if</span> (!description.children) {
+        description.children = {};
+      }
+      <span class="hljs-keyword">if</span> (!description.components) {
+        description.components = {};
+      }
+
+      <span class="hljs-keyword">const</span> p = [];
+      <span class="hljs-built_in">Object</span>.keys(description.children).forEach((name) =&gt; {
+        <span class="hljs-keyword">const</span> child = <span class="hljs-keyword">this</span>.addChild(name, <span class="hljs-keyword">new</span> SceneObject());
+        p.push(child.create(description.children[name]));
+      });
+
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all(p)
+        .then(() =&gt; {
+          <span class="hljs-keyword">const</span> pcomp = [];
+          <span class="hljs-built_in">Object</span>.keys(description.components).forEach((type) =&gt; {
+            <span class="hljs-keyword">const</span> comp = <span class="hljs-keyword">this</span>.addComponent(type);
+            <span class="hljs-keyword">const</span> compP = comp.create(description.components[type]);
+            pcomp.push(compP);
+          });
+          <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all(pcomp);
+        });
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-5">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-5">&#182;</a>
+                        </div>
+                        <h2 id="m-thode-setup-">Méthode <em>setup</em></h2>
+<p>Configure les composants de la hiérarchie d’objets, en
+s’assurant de les identifier lorsque leur configuration
+est complète afin d’éviter de faire les mises à jour
+sur des composants incomplets.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    setup(description) {
+      <span class="hljs-keyword">if</span> (!description.children) {
+        description.children = {};
+      }
+      <span class="hljs-keyword">if</span> (!description.components) {
+        description.components = {};
+      }
+
+      <span class="hljs-keyword">const</span> p = [];
+      <span class="hljs-built_in">Object</span>.keys(description.children).forEach((name) =&gt; {
+        <span class="hljs-keyword">const</span> child = <span class="hljs-keyword">this</span>.getChild(name);
+        p.push(child.setup(description.children[name]));
+      });
+
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all(p)
+        .then(() =&gt; {
+          <span class="hljs-keyword">const</span> pcomp = [];
+          <span class="hljs-built_in">Object</span>.keys(description.components).forEach((type) =&gt; {
+            <span class="hljs-keyword">const</span> comp = <span class="hljs-keyword">this</span>.getComponent(type);
+            <span class="hljs-keyword">const</span> compP = comp.setup(description.components[type])
+              .then(() =&gt; {
+                comp.__ready = <span class="hljs-literal">true</span>;
+              });
+            pcomp.push(compP);
+          });
+          <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all(pcomp);
+        });
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-6">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-6">&#182;</a>
+                        </div>
+                        <h2 id="m-thode-addcomponent-">Méthode <em>addComponent</em></h2>
+<p>Cette méthode prend en paramètre le type d’un composant et
+instancie un nouveau composant.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    addComponent(type) {
+      <span class="hljs-keyword">const</span> newComponent = ComponentFactory.create(type, <span class="hljs-keyword">this</span>);
+      <span class="hljs-keyword">this</span>.components[type] = newComponent;
+      <span class="hljs-keyword">return</span> newComponent;
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-7">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-7">&#182;</a>
+                        </div>
+                        <h2 id="fonction-getcomponent-">Fonction <em>getComponent</em></h2>
+<p>Cette fonction retourne un composant existant du type spécifié
+associé à l’objet.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    getComponent(type) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.components[type];
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-8">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-8">&#182;</a>
+                        </div>
+                        <h2 id="m-thode-addchild-">Méthode <em>addChild</em></h2>
+<p>La méthode <em>addChild</em> ajoute à l’objet courant un objet
+enfant.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    addChild(objectName, child) {
+      child.parent = <span class="hljs-keyword">this</span>;
+      child.__name = objectName;
+      <span class="hljs-keyword">this</span>.children[objectName] = child;
+      <span class="hljs-keyword">return</span> child;
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-9">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-9">&#182;</a>
+                        </div>
+                        <h2 id="m-thode-removechild-">Méthode <em>removeChild</em></h2>
+<p>La méthode <em>remoteChild</em> supprime un enfant direct de l’objet
+courant, par son nom ou par sa référence.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    removeChild(child) {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(child) === <span class="hljs-string">'string'</span>) {
+        <span class="hljs-keyword">delete</span> <span class="hljs-keyword">this</span>.children[child];
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>.children).forEach((k) =&gt; {
+          <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.children[k] === child) {
+            <span class="hljs-keyword">delete</span> <span class="hljs-keyword">this</span>.children[k];
+          }
+        });
+      }
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-10">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-10">&#182;</a>
+                        </div>
+                        <h2 id="fonction-getchild-">Fonction <em>getChild</em></h2>
+<p>La fonction <em>getChild</em> retourne un objet existant portant le
+nom spécifié, dont l’objet courant est le parent.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    getChild(objectName) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.children[objectName];
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-11">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-11">&#182;</a>
+                        </div>
+                        <h2 id="fonction-findchildrecursive-">Fonction <em>findChildRecursive</em></h2>
+<p>La fonction <em>findChildRecursive</em> retourne un objet existant
+portant le nom spécifié, dont l’objet courant ou un de ses
+enfants en est le parent.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    findChildRecursive(objectName) {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.children[objectName]) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getChild(objectName);
+      }
+      <span class="hljs-keyword">let</span> found = <span class="hljs-literal">null</span>;
+      <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>.children).forEach((k) =&gt; {
+        <span class="hljs-keyword">if</span> (found) {
+          <span class="hljs-keyword">return</span>;
+        }
+        found = <span class="hljs-keyword">this</span>.children[k].findChildRecursive(objectName);
+      });
+      <span class="hljs-keyword">return</span> found;
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-12">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-12">&#182;</a>
+                        </div>
+                        <h2 id="fonction-fingobjectinscene-">Fonction <em>fingObjectInScene</em></h2>
+<p>Cette fonction retourne un objet de la scène portant le
+nom spécifié. Cet objet n’est pas nécessairement en lien
+avec l’objet courant. Voir la méthode <code>findObject</code> de la
+classe <em>Scene</em>.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    findObjectInScene(objectName) {
+      <span class="hljs-keyword">const</span> Scene = <span class="hljs-built_in">require</span>(<span class="hljs-string">'scene'</span>);
+      <span class="hljs-keyword">return</span> Scene.current.findObject(objectName);
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-13">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-13">&#182;</a>
+                        </div>
+                        <h2 id="m-thode-callrecursive-">Méthode <em>callRecursive</em></h2>
+<p>Cette méthode appelle la méthode voulue des composants
+de l’objet et de ses enfants.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    callRecursive(method, params = []) {
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.active) {
+        <span class="hljs-keyword">return</span>;
+      }
+
+      <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>.components).forEach((name) =&gt; {
+        <span class="hljs-keyword">const</span> comp = <span class="hljs-keyword">this</span>.components[name];
+        <span class="hljs-keyword">if</span> (comp.__ready &amp;&amp; comp.enabled) {
+          comp[method].apply(comp, params);
+        }
+      });
+      <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>.children).forEach((name) =&gt; {
+        <span class="hljs-keyword">const</span> child = <span class="hljs-keyword">this</span>.children[name];
+        child.callRecursive(method, params);
+      });
+    }</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+                
+                  <li id="section-14">
+                    <div class="annotation">
+                      
+                        <div class="pilwrap ">
+                          <a class="pilcrow" href="#section-14">&#182;</a>
+                        </div>
+                        <h2 id="m-thode-createnewcomponents-">Méthode <em>createNewComponents</em></h2>
+<p>Cette méthode instancie un nouvel objet et ses composants
+à un moment autre que l’initialisation d’une scène.</p>
+
+                    </div>
+                    
+                      <div class="content">
+                        <div class='highlight'><pre>    createNewComponents(descriptions) {
+      <span class="hljs-keyword">const</span> types = <span class="hljs-built_in">Object</span>.keys(descriptions);
+      <span class="hljs-keyword">const</span> components = [];
+      types.forEach((type) =&gt; {
+        components.push(<span class="hljs-keyword">this</span>.addComponent(type));
+      });
+
+      <span class="hljs-keyword">let</span> calls = <span class="hljs-built_in">Promise</span>.resolve();
+      [<span class="hljs-string">'create'</span>, <span class="hljs-string">'setup'</span>].forEach((fn) =&gt; {
+        calls = calls.then(() =&gt; {
+          <span class="hljs-keyword">const</span> p = [];
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; components.length; ++i) {
+            <span class="hljs-keyword">const</span> comp = components[i];
+            <span class="hljs-keyword">const</span> type = types[i];
+            p.push(comp[fn](descriptions[type]));
+          }
+          <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all(p);
+        });
+      });
+
+      <span class="hljs-keyword">return</span> calls.then(() =&gt; {
+        components.forEach((comp) =&gt; {
+          comp.__ready = <span class="hljs-literal">true</span>;
+        });
+      });
+    }
+  }
+
+  <span class="hljs-keyword">return</span> SceneObject;
+});</pre></div>
+                      </div>
+                      
+                  </li>
+                  
+        </ul>
+        </div>
+</body>
+
+</html>
