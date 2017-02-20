@@ -88,11 +88,11 @@ define([
     // via la méthode *bind* de la feuille de sprite, sélectionne le
     // tableau de vertices et d'indices et fait l'appel de rendu.
     display( /*frame*/ ) {
-      GL.bindBuffer(GL.ARRAY_BUFFER, this.vertexBuffer);
-      GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
-      this.spriteSheet.bind();
-      GL.drawElements(GL.TRIANGLES, 6, GL.UNSIGNED_SHORT, 0);
-      this.spriteSheet.unbind();
+      // GL.bindBuffer(GL.ARRAY_BUFFER, this.vertexBuffer);
+      // GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
+      // this.spriteSheet.bind();
+      // GL.drawElements(GL.TRIANGLES, 6, GL.UNSIGNED_SHORT, 0);
+      // this.spriteSheet.unbind();
     }
 
     // ## Méthode *updateMesh*
@@ -136,7 +136,6 @@ define([
     // des transformations et de la sprite courante.
     updateComponents(descr) {
       const position = this.owner.getComponent('Position').worldPosition;
-
       const z = position[2];
       const xMin = position[0];
       const xMax = xMin + descr.frame.w;
@@ -153,11 +152,11 @@ define([
         xMax, yMax, z, uMax, vMax,
         xMin, yMax, z, uMin, vMax,
       ];
-
       let offset = 0;
       this.vertices.set(v, offset);
       GL.bindBuffer(GL.ARRAY_BUFFER, this.vertexBuffer);
       GL.bufferSubData(GL.ARRAY_BUFFER, offset, this.vertices);
+
     }
   }
 
