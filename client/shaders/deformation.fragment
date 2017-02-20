@@ -18,7 +18,13 @@ uniform float uScale;
 /* Coordonnées UV du fragment */
 varying vec2 vTextureCoord;
 
+
 void main(void) {
-    gl_FragColor = texture2D(uSampler, vTextureCoord);
-    gl_FragColor.gb *= 0.5;
+    vec2 vec;
+    vec.x = uTime;
+    vec.y = 0.5;
+    vec2 intensityVec = texture2D(uIntensity,vec).xy * uScale;
+    vec2 defVec = (texture2D(uDeformation,vTextureCoord + sin(uTime)).xy + vec2(-0.25,-0.25)) * intensityVec;
+    gl_FragColor = texture2D(uSampler, vTextureCoord + defVec);
+    gl_FragColor.gb = gl_FragColor.gb * (1.0 - intensityVec.x * 5.0);
 }
