@@ -83,21 +83,25 @@ define([
 
     update( /*frame*/ ) {
 
-      //Enlever l'objet de la cellule
-      if(this.cell.x!=-1 && this.cell.y!=-1){
+      var tempCell =this.calculateCell();
+
+      var removed = false;
+      //Enlever l'objet de la cellule s'il a déjà été initialisé et que sa position a changé
+      if(this.cell.x!=-1 && this.cell.y!=-1 && (tempCell.x!=this.cell.x || tempCell.y!=this.cell.y)){
         var deleteIndex = grid[this.cell.x][this.cell.y].indexOf(this);
         grid[this.cell.x][this.cell.y].splice(deleteIndex, 1);
+        removed = true;
       }
-
-      //Mettre à jour la position de l'objet dans la grille
-      var tempCell =this.calculateCell();
 
       //console.log(tempCell);
       //Si c'est hors de la map, on ne vérifie même pas
       if(tempCell.x >= 0 && tempCell.x < xDivider && tempCell.y >= 0 && tempCell.y < yDivider){
-        this.cell = tempCell;
-        grid[this.cell.x][this.cell.y].push(this);
-
+        //Mettre à jour la position de l'objet dans la grille s'il a été supprimé ou non initialisé
+        if(removed || (!removed  && this.cell.x==-1 && this.cell.y==-1)){
+          this.cell = tempCell;
+          grid[this.cell.x][this.cell.y].push(this);
+          console.log(this.cell)
+        }
         if (!this.handler) {
           return;
         }
