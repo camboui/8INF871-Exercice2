@@ -7,6 +7,15 @@ define([
 ) => {
   'use strict';
 
+
+/*""À l’aide du projet ChickenDodge, disponible via les exercices #2 et #3, améliorer la gestion de collisions rudimentaire de la classe ColliderComponent.
+
+Vous devriez implémenter les premières étapes de vérifications vues en classe:
+
+- drapeaux et masques
+- subdivision spatiales
+- rectangles englobants alignés aux axes"*/
+
   // ## Variable *colliders*
   // On conserve ici une référence vers toutes les instances
   // de cette classe, afin de déterminer si il y a collision.
@@ -46,6 +55,7 @@ define([
     // Si c'est le cas, et qu'un type *handler* a été défini, on
     // appelle sa méthode *onCollision* avec l'objet qui est en
     // collision.
+
     update( /*frame*/ ) {
       if (!this.handler) {
         return;
@@ -53,9 +63,7 @@ define([
 
       const area = this.area;
       colliders.forEach((c) => {
-        if (c === this ||
-          !c.enabled ||
-          !c.owner.active) {
+        if (this.isUselessObject(c)) {
           return;
         }
         if (area.intersectsWith(c.area)) {
@@ -63,6 +71,27 @@ define([
         }
       });
     }
+
+  isUselessObject(coll)
+  {
+    /*On ne teste que les objets intéressants, à savoir
+    les objets actifs
+    dont le composant est actif
+    et dont le masque autorise la collision avec le flag de l'objet*/
+      var res =  (coll === this ||
+        !coll.enabled ||
+        !coll.owner.active || !(this.mask & coll.flag));
+
+      /*if(!res) {
+        console.log("Accepting collision between ");
+        console.log(coll);
+        console.log("and");
+        console.log(this);
+      }*/
+
+      return res;
+  }
+
 
     // ## Propriété *area*
     // Cette fonction calcule l'aire courante de la zone de
