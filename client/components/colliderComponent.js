@@ -45,6 +45,7 @@ Vous devriez implémenter les premières étapes de vérifications vues en class
       if (descr.handler) {
         this.handler = this.owner.getComponent(descr.handler);
       }
+      
       colliders.push(this);
       return Promise.resolve();
     }
@@ -66,32 +67,46 @@ Vous devriez implémenter les premières étapes de vérifications vues en class
         if (this.isUselessObject(c)) {
           return;
         }
+        // vérifie les polygones anglobants
         if (area.intersectsWith(c.area)) {
+          //this.logCollision("COLLISION",c);
           this.handler.onCollision(c);
         }
       });
     }
 
-  isUselessObject(coll)
+  isUselessObject(otherCollider)
   {
     /*On ne teste que les objets intéressants, à savoir
     les objets actifs
     dont le composant est actif
     et dont le masque autorise la collision avec le flag de l'objet*/
-      var res =  (coll === this ||
-        !coll.enabled ||
-        !coll.owner.active || !(this.mask & coll.flag));
+      var res =  (otherCollider === this ||
+        !otherCollider.enabled ||
+        !otherCollider.owner.active ||
+        !(this.mask & otherCollider.flag));
 
-      /*if(!res) {
-        console.log("Accepting collision between ");
-        console.log(coll);
-        console.log("and");
-        console.log(this);
-      }*/
-
+    //  if(!res) {this.logCollision("Potential interaction",otherCollider);}
       return res;
   }
 
+  logCollision(message, otherCollider){
+    const rupee = otherCollider.owner.getComponent('Rupee');
+    const heart = otherCollider.owner.getComponent('Heart');
+    const chicken = otherCollider.owner.getComponent('Chicken');
+
+    var text =  message+" between " + this.owner.getComponent('Player').name + " and ";
+    if (rupee) {
+      text+= "rupee";
+    }
+    if (heart) {
+      text+= "heart";
+    }
+    if (chicken) {
+      text+= "chicken";
+    }
+    console.log(text);
+  }
 
     // ## Propriété *area*
     // Cette fonction calcule l'aire courante de la zone de
