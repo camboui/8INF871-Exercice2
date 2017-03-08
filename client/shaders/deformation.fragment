@@ -20,11 +20,15 @@ varying vec2 vTextureCoord;
 
 
 void main(void) {
-    vec2 vec;
-    vec.x = uTime;
-    vec.y = 0.5;
-    vec2 intensityVec = texture2D(uIntensity,vec).xy * uScale;
-    vec2 defVec = (texture2D(uDeformation,vTextureCoord + sin(uTime)).xy + vec2(-0.25,-0.25)) * intensityVec;
-    gl_FragColor = texture2D(uSampler, vTextureCoord + defVec);
-    gl_FragColor.gb = gl_FragColor.gb * (1.0 - intensityVec.x * 5.0);
+    vec2 vecTime = vec2( uTime, 0.5 );
+
+    //Calculer l’intensité de la déformation à appliquer selon le temps, par la recherche d’une valeur dans la texture uIntensity, aux coordonnées (uTime, 0.5). Mettre cette intensité à l’échelle uScale.
+    vec2 vecIntensity = texture2D( uIntensity, vecTime ).xy * uScale;
+
+    //Chercher un vecteur de déformation dans la texture uDeformation, aux coordonnées vTextureCoord décalé d’une valeur tirée de uTime (par exemple, le sinus de uTime). Moduler ce vecteur de déformation par l’intensité précédente.
+    vec2 vecDeformation = ( texture2D( uDeformation, vTextureCoord + 1.0/(uTime/0.5) ).xy ) * vecIntensity;
+
+    //Chercher la couleur finale dans uSampler aux coordonnées vTextureCoord, décalées du vecteur de déformation.
+    gl_FragColor = texture2D( uSampler, vTextureCoord + vecDeformation );
+    gl_FragColor.gb *= ( 1.0 - ( vecIntensity.x * 8.0 ) );
 }
