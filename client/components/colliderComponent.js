@@ -25,9 +25,6 @@ define([
   const yDivider = 20;
   const grid = new Array (xDivider);
   const window = document.getElementById('canvas');
-
-
-
   const cellDim = {x : window.width/xDivider, y :window.height/yDivider};
   // # Classe *ColliderComponent*
   // Ce composant est attaché aux objets pouvant entrer en
@@ -51,7 +48,7 @@ define([
         }
       }
 
-      this.cell = {x:-1 ,y:-1};
+      this.occupyingCells = [];
       this.flag = descr.flag;
       this.mask = descr.mask;
       this.size = descr.size;
@@ -83,52 +80,64 @@ define([
 
     update( /*frame*/ ) {
 
-      var tempCell =this.calculateCell();
+      var topLeftCell = {x : Math.trunc(this.area.xMin/cellDim.x), y:Math.trunc(this.area.yMin/cellDim.y)};
+      var bottomRightCell = {x : Math.trunc(this.area.xMax/cellDim.x), y:Math.trunc(this.area.yMax/cellDim.y)};
 
-      var removed = false;
-      //Enlever l'objet de la cellule s'il a déjà été initialisé et que sa position a changé
-      if(this.cell.x!=-1 && this.cell.y!=-1 && (tempCell.x!=this.cell.x || tempCell.y!=this.cell.y)){
-        var deleteIndex = grid[this.cell.x][this.cell.y].indexOf(this);
-        grid[this.cell.x][this.cell.y].splice(deleteIndex, 1);
-        removed = true;
+      //On enleve les anciennes traces de l'objet dans les cellules
+      if(this.occupyingCells.length!=0)
+      {
+        this.occupyingCells.forEach((cell) => {
+          var deleteIndex = grid[cell.x][cell.y].indexOf(this);
+          grid[cell.x][cell.y].splice(deleteIndex, 1);
+        });
+        this.occupyingCells =[];
       }
 
-      //console.log(tempCell);
-      //Si c'est hors de la map, on ne vérifie même pas
-      if(tempCell.x >= 0 && tempCell.x < xDivider && tempCell.y >= 0 && tempCell.y < yDivider){
-        //Mettre à jour la position de l'objet dans la grille s'il a été supprimé ou non initialisé
-        if(removed || (!removed  && this.cell.x==-1 && this.cell.y==-1)){
-          this.cell = tempCell;
-          grid[this.cell.x][this.cell.y].push(this);
-          console.log(this.cell)
+      //Si on est bien dans le tableau
+      if(this.inBounds(topLeftCell) && this.inBounds(bottomRightCell))
+      {
+        //Le collider peut être présent dans plusieurs cellules à la fois
+        for(var i =  topLeftCell.x ; i <= bottomRightCell.x ; i++){
+          for(var j = topLeftCell.y ; j <= bottomRightCell.y ; j++){
+            grid[i][j].push(this);
+            this.occupyingCells.push({x : i, y:j});
+          }
         }
-        if (!this.handler) {
+        //console.log(this.occupyingCells)
+      }
+
+      if (!this.handler) {
+        return;
+      }
+
+      //Checker les collisions avec tous les objets qui ont des cellules communes
+      const area = this.area;
+      var potentialColliders = this.getCollidersInCells();
+
+      potentialColliders.forEach((c) => {
+        if (this.isUselessObject(c)) {
           return;
         }
+        // vérifie les polygones anglobants
+        if (area.intersectsWith(c.area)) {
+          //this.logCollision("COLLISION",c);
+          this.handler.onCollision(c);
+        }
+      });
 
-        //comparer avec les autres objets de la grille
-        const area = this.area;
-        var cellNeighbours = grid[this.cell.x][this.cell.y];
-        cellNeighbours.forEach((c) => {
-          if (this.isUselessObject(c)) {
-            return;
-          }
-          // vérifie les polygones anglobants
-          if (area.intersectsWith(c.area)) {
-            //this.logCollision("COLLISION",c);
-            this.handler.onCollision(c);
-          }
-        });
-      }
     }
 
+    getCollidersInCells()
+    {
+      var tab = [];
+      this.occupyingCells.forEach((cell) => {
+        tab = tab.concat(grid[cell.x][cell.y]);
+      });
+      return tab;
+    }
 
-    calculateCell(){
-      return {
-        //Centre du collider / taille d'une cellule
-        x: Math.round((this.area.xMin + ( ( this.area.xMax - this.area.xMin ) / 2)) / cellDim.x),
-        y: Math.round((this.area.yMin + ( ( this.area.yMax - this.area.yMin ) / 2)) / cellDim.y)
-      };
+    inBounds(arrayPos){
+      return (arrayPos.x >=0 && arrayPos.x <yDivider && arrayPos.y >=0 && arrayPos.y <xDivider);
     }
 
     isUselessObject(otherCollider)
