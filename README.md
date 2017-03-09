@@ -1,4 +1,4 @@
-# 8INF871-Exercice2
+# 8INF871-Exercice 2,3,4
 
 * BRANGER Mathias BRAM23079405
 * CROUZET Matthieu CROM12069406
