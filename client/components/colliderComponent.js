@@ -24,6 +24,10 @@ define([
   const xDivider = 30;
   const yDivider = 30;
   const grid = new Array (xDivider);
+
+  //On se base sur le canvas pour diviser l'écran avec un grille
+  //ça marche ici mais seulement parce que le canvas est assez grand pour atteindre la zone de jeu.
+  //Idéalement avec la grille, il faudrait utiliser la taille de la scène si celle-ci n'est pas trop grande
   const window = document.getElementById('canvas');
   const cellDim = {x : window.width/xDivider, y :window.height/yDivider};
   // # Classe *ColliderComponent*
@@ -35,6 +39,7 @@ define([
     // que tous les composants d'un objet aient été créés.
     create(descr) {
 
+      // on aurait pu utiliser un Quadtree avec un gestionnaire de collider mais c'est long à mettre en place alors on utilise une simple grille
       //Initialiser la grille avec des cellules vides
       if(grid[0] == undefined){
         for(var i = 0 ; i < grid.length ; i++){
@@ -75,9 +80,9 @@ define([
     // Si c'est le cas, et qu'un type *handler* a été défini, on
     // appelle sa méthode *onCollision* avec l'objet qui est en
     // collision.
-
     update( /*frame*/ ) {
 
+      //On récupère les extrémités du collider
       var topLeftCell = {x : Math.trunc(this.area.xMin/cellDim.x), y:Math.trunc(this.area.yMin/cellDim.y)};
       var bottomRightCell = {x : Math.trunc(this.area.xMax/cellDim.x), y:Math.trunc(this.area.yMax/cellDim.y)};
 
@@ -131,6 +136,7 @@ define([
 
       }
 
+      //Retpurne l'ensemble des colliders qui peuvent entrer en collision avec this.
       getCollidersInCells()
       {
         var tab = [];
@@ -140,10 +146,12 @@ define([
         return tab;
       }
 
+      //Vérifie si on ne sort pas de la grille
       inBounds(arrayPos){
         return (arrayPos.x >=0 && arrayPos.x <yDivider && arrayPos.y >=0 && arrayPos.y <xDivider);
       }
 
+      //Retourne faux si un collider mérite qu'on teste sa collision avec this
       isUselessObject(otherCollider)
       {
         /*On ne teste que les objets intéressants, à savoir
